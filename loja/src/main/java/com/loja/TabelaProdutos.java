@@ -54,6 +54,12 @@ public class TabelaProdutos {
         }
         return produtoProcurado;
     }
+
+    /**
+     * Método que
+     * @param novoProduto
+     * @return
+     */
     public Produto cadastrarNovoProduto(Produto novoProduto) {
         // 5 - 1 = 4
     int ultimoIndex = this.produtos.size() - 1;
@@ -67,6 +73,23 @@ public class TabelaProdutos {
     novoProduto.setId(proximoId);
     this.produtos.add(novoProduto);
     return novoProduto;
+    }
+
+    /**
+     * Método que atualiza um produto
+     * Primeiro buscaa o produto a atualizar pelo ID
+     * Depois atribui as novas informações: nome,descrição e valor
+     * Finalmente salva o produto atualizando
+     * @param produtoId
+     * @param produtoAtualizar
+     */
+    public void atualizarProdutoNaLoja(int produtoId, Produto produtoAtualizar){
+Produto produtoProcurado = this.buscarProdutoPeloId(produtoId);
+if (produtoProcurado != null){
+    produtoProcurado.setNome(produtoAtualizar.getNome());
+    produtoProcurado.setDescricao(produtoAtualizar.getDescricao());
+    produtoProcurado.setValorUnitario(produtoAtualizar.getValorUnitario());
+}
     }
 
 

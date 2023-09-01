@@ -27,6 +27,9 @@ import java.util.List;
         public Produto cadastrarNovoProdutoNaLoja(@RequestBody Produto dadosNovoProduto){
             return this.tabelaProdutos.cadastrarNovoProduto(dadosNovoProduto);
         }
-
+@PutMapping("/{produtoId}")
+        public void atualizarProdutoNaLoja(@PathVariable int produtoId, @RequestBody Produto dadosAtualizarProduto){
+            this.tabelaProdutos.atualizarProdutoNaLoja(produtoId, dadosAtualizarProduto);
+}
     }
 
