@@ -1,5 +1,8 @@
 package com.loja;
 
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -51,4 +54,30 @@ public class TabelaProdutos {
         }
         return produtoProcurado;
     }
+    public Produto cadastrarNovoProduto(Produto novoProduto) {
+        // 5 - 1 = 4
+    int ultimoIndex = this.produtos.size() - 1;
+
+    //      Produto caderno = new Produto(5, "Caderno espiral", "Caderno espiral de 96 folhas", 15.99);
+    Produto ultimoProduto = this.produtos.get(ultimoIndex);
+
+    // 5 + 1 = 6
+    int proximoId = ultimoProduto.getId() + 1;
+
+    novoProduto.setId(proximoId);
+    this.produtos.add(novoProduto);
+    return novoProduto;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
 }
